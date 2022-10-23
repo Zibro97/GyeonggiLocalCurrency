@@ -8,3 +8,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GyeonggiLocalCurrency"
 include ':app'
+include ':domain'
+include ':presentation'
+include ':data'
