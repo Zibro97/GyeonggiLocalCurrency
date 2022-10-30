@@ -1,0 +1,111 @@
+ext {
+    application = [
+            id : "com.zibro.gyeonggilocalcurrency",
+            appName : "경기지역화폐 가맹점 찾기"
+    ]
+    versions = [
+            //Default Library
+            androidxCoreKtx : "1.9.0",
+            androidxAppCompat : "1.5.1",
+            material : "1.7.0",
+
+            //retrofit
+            retrofit : "2.9.0",
+            okhttp3 : "4.9.0",
+
+            //navigation
+            navigation : "2.5.3",
+
+            //lifecycle
+            lifecycle: "2.5.1",
+
+            //Glide
+            glide : "4.12.0",
+
+            //coroutines
+            coroutines : "1.4.2",
+            coroutines_android : "1.6.1",
+
+            //hilt
+            koin : "2.1.5",
+
+            //mockito
+            mockito: "3.4.0",
+
+            //jUnit
+            jUnit : "1.1.2",
+
+            //espresso
+            espresso: "3.3.0",
+
+            //coreTesting
+            coreTestring: "1.1.1",
+
+            //Timber
+            timber :  "5.0.1",
+
+            //Lottie
+            lottie : "5.0.3",
+
+            //Parsing Xml
+            tikXml : "0.8.13"
+    ]
+    modularization = [
+            presentation: ":presentation",
+            domain      : ":domain",
+            data        : ":data",
+    ]
+    libraries = [
+            //Default Library
+            androidxCoreKtx : "androidx.core:core-ktx:$versions.androidxCoreKtx",
+            androidxAppCompat : "androidx.appcompat:appcompat:$versions.androidxAppCompat",
+            material : "com.google.android.material:material:$versions.material",
+            constraintLayout : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+
+            //retrofit
+            retrofit : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+            retrofitGson : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+            okhttp3 : "com.squareup.okhttp3:okhttp:$versions.okhttp3",
+            okhttp3Logging : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3",
+
+            //navigation
+            navigation : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+            navigationFragmentKtx : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+
+            //Glide
+            glide : "com.github.bumptech.glide:glide:$versions.glide",
+
+            //coroutines
+            coroutines : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+            coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines_android",
+
+            //koin
+            koin : "org.koin:koin-android:$versions.koin",
+            koinScope : "org.koin:koin-android-scope:$versions.koin",
+            koinViewModel : "org.koin:koin-android-viewmodel:$versions.koin",
+            koinExt : "org.koin:koin-android-ext:$versions.koin",
+
+            //Timber
+            timber :  "com.jakewharton.timber:timber:$versions.timber",
+
+            //Lottie
+            lottie : "com.airbnb.android:lottie:$versions.lottie",
+
+            //lifecycle
+            lifecycle : "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle",
+            lifecycleService : "androidx.lifecycle:lifecycle-runtime-service:$versions.lifecycle",
+            lifecycleLiveDataKtx : "androidx.lifecycle:lifecycle-runtime-livedata-ktx:$versions.lifecycle",
+
+            //tikXml
+            tikXmlAnnotation: "com.tickaroo.tikxml:annotation:$versions.tikXml",
+            tikXmlCore: "com.tickaroo.tikxml:annotation:$versions.tikXml",
+            tikXmlRetrofitConverter : "com.tickaroo.tikxml:retrofit-converter:$versions.tikXml",
+            tikXmlProcessor: "com.tickaroo.tikxml:processor:$versions.tikXml",
+    ]
+    testing = [
+            mockito : "org.mockito:mockito-inline:$versions.mockito",
+            coreTestring : "android.arch.core:core-testing:$versions.coreTesting",
+            jUnit : "androidx.test.ext:junit:$versions.jUnit",
+            espresso : "androidx.test.espresso:espresso-core:$versions.espresso"
+    ]
+}

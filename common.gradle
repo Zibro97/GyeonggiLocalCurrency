@@ -1,0 +1,46 @@
+apply plugin : 'kotlin-android'
+apply plugin : 'kotlin-kapt'
+apply from : '../version.gradle'
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    //hilt
+    implementation "$libraries.koin"
+    implementation "$libraries.koinScope"
+    implementation "$libraries.koinViewModel"
+    implementation "$libraries.koinExt"
+    //timber
+    implementation "$libraries.timber"
+    //Retrofit
+    implementation "$libraries.retrofit"
+    implementation "$libraries.okhttp3"
+    implementation "$libraries.okhttp3Logging"
+    //coroutines
+    implementation "$libraries.coroutines"
+}

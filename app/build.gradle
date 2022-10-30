@@ -3,7 +3,10 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply from : '../common.gradle'
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 android {
     compileSdk 33
 
@@ -15,12 +18,18 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String","LOCAL_CURRENCY_API_KEY",properties['local_currency_api_key']
     }
 
     buildTypes {
+        debug {
+            buildConfigField "Boolean","DEBUG_MODE","true"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "Boolean","DEBUG_MODE","false"
         }
     }
     compileOptions {
@@ -45,7 +54,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation project(":data")
-    implementation project(":domain")
-    implementation project(":presentation")
+    implementation project("$modularization.presentation")
+    implementation project("$modularization.domain")
+    implementation project("$modularization.data")
 }

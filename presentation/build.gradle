@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply from: '../version.gradle'
+apply from: '../common.gradle'
 
 android {
     compileSdk 33
@@ -42,31 +44,30 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //Retrofit2
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "$libraries.retrofit"
     // OkHttp3
-    implementation "com.squareup.okhttp3:okhttp:4.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "$libraries.okhttp3"
+    implementation "$libraries.okhttp3Logging"
     //Parsing XML
-    implementation 'com.tickaroo.tikxml:annotation:0.8.13'
-    implementation 'com.tickaroo.tikxml:core:0.8.13'
-    implementation 'com.tickaroo.tikxml:retrofit-converter:0.8.13'
-    kapt 'com.tickaroo.tikxml:processor:0.8.13'
+    implementation "$libraries.tikXmlAnnotation"
+    implementation "$libraries.tikXmlCore"
+    implementation "$libraries.tikXmlRetrofitConverter"
+    kapt "$libraries.tikXmlProcessor"
     //Timber
-    implementation "com.jakewharton.timber:timber:5.0.1"
+    implementation "$libraries.timber"
     //JetPack navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
-    //
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-service:2.5.1")
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    implementation "$libraries.navigationFragmentKtx"
+    implementation "$libraries.navigation"
+    //liveData
+    implementation "$libraries.lifecycle"
+    implementation "$libraries.lifecycleService"
+    implementation "$libraries.lifecycleLiveDataKtx"
     //koin DI
-    implementation "org.koin:koin-android:2.1.5"
-    implementation "org.koin:koin-android-scope:2.1.5"
-    implementation "org.koin:koin-android-viewmodel:2.1.5"
-    implementation "org.koin:koin-android-ext:2.1.5"
+    implementation "$libraries.koin"
+    implementation "$libraries.koinScope"
+    implementation "$libraries.koinViewModel"
+    implementation "$libraries.koinExt"
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    implementation "$libraries.coroutines"
+    implementation "$libraries.coroutinesAndroid"
 }
