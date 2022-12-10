@@ -6,12 +6,13 @@ ext {
     versions = [
             //Default Library
             androidxCoreKtx : "1.9.0",
-            androidxAppCompat : "1.5.1",
-            material : "1.7.0",
+            androidxAppCompat : "1.4.1",
+            material : "1.6.0",
 
             //retrofit
             retrofit : "2.9.0",
             okhttp3 : "4.9.0",
+            gson : "2.10",
 
             //navigation
             navigation : "2.5.3",
@@ -68,6 +69,9 @@ ext {
             okhttp3 : "com.squareup.okhttp3:okhttp:$versions.okhttp3",
             okhttp3Logging : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3",
 
+            //gson
+            gson:"com.google.code.gson:gson:$versions.gson",
+
             //navigation
             navigation : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
             navigationFragmentKtx : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
@@ -93,8 +97,7 @@ ext {
 
             //lifecycle
             lifecycle : "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle",
-            lifecycleService : "androidx.lifecycle:lifecycle-runtime-service:$versions.lifecycle",
-            lifecycleLiveDataKtx : "androidx.lifecycle:lifecycle-runtime-livedata-ktx:$versions.lifecycle",
+            lifecycleViewModel : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
 
             //tikXml
             tikXmlAnnotation: "com.tickaroo.tikxml:annotation:$versions.tikXml",

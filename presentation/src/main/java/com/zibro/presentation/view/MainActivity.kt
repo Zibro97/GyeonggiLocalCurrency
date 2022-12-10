@@ -1,10 +1,10 @@
-package com.zibro.presentation
+package com.zibro.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
+import com.zibro.presentation.R
+import org.koin.android.ext.android.getKoin
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navController = (supportFragmentManager.findFragmentById(R.id.nav_fragment) as NavHostFragment).findNavController()
+        getKoin()._logger.info("안녕하세요")
+//        navController = (supportFragmentManager.findFragmentById(R.id.nav_fragment) as NavHostFragment).findNavController()
     }
 }

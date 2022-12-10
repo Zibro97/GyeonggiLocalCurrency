@@ -39,6 +39,8 @@ dependencies {
     implementation "$libraries.timber"
     //Retrofit
     implementation "$libraries.retrofit"
+    implementation "$libraries.retrofitGson"
+    implementation "$libraries.gson"
     implementation "$libraries.okhttp3"
     implementation "$libraries.okhttp3Logging"
     //coroutines

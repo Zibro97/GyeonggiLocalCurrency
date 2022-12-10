@@ -1,6 +1,14 @@
 apply plugin : 'com.android.library'
 apply from: '../common.gradle'
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+android{
+ defaultConfig{
+     buildConfigField "String","LOCAL_CURRENCY_API_KEY",properties['LOCAL_CURRENCY_API_KEY']
+     buildConfigField "String","LOCAL_CURRENCY_BASE_URL",properties['LOCAL_CURRENCY_BASE_URL']
+ }
+}
 dependencies {
     //layer module implementation
     implementation project("$modularization.domain")
