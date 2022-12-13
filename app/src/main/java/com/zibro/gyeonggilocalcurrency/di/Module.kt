@@ -1,11 +1,13 @@
 package com.zibro.gyeonggilocalcurrency.di
 
-import com.zibro.data.*
 import com.zibro.data.network.buildOkHttpClient
 import com.zibro.data.network.provideGsonConverterFactory
 import com.zibro.data.network.provideOpenApiClient
 import com.zibro.data.network.provideOpenApiRetrofit
 import com.zibro.data.repository.LocalCurrencyStoreRepositoryImpl
+import com.zibro.domain.repository.LocalCurrencyStoreRepository
+import com.zibro.domain.usecase.GetLocalCurrencyStoreUseCase
+import com.zibro.presentation.viewModel.TestViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -17,10 +19,12 @@ import org.koin.dsl.module
  */
 internal val module = module {
     //Dispatchers
-    single{Dispatchers.IO}
     single{Dispatchers.Main}
-    single{Dispatchers.Default}
-
+    single{Dispatchers.IO}
+    //ViewModel
+    viewModel { TestViewModel(get()) }
+    //Usecase
+    factory { GetLocalCurrencyStoreUseCase(get()) }
     //Retrofit
     single { provideGsonConverterFactory() }
     single { buildOkHttpClient() }
@@ -29,9 +33,4 @@ internal val module = module {
 
     //Repository
     single<LocalCurrencyStoreRepository> { LocalCurrencyStoreRepositoryImpl(get(),get()) }
-
-    //Usecase
-    factory {  }
-    //ViewModel
-    viewModel {  }
 }

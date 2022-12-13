@@ -1,5 +1,6 @@
 package com.zibro.presentation.viewModel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.zibro.domain.model.LocalCurrencyStoreModel
@@ -12,9 +13,11 @@ import kotlinx.coroutines.launch
 class TestViewModel(
     private val localCurrencyStoreUseCase: GetLocalCurrencyStoreUseCase
 ) : BaseViewModel() {
-    private val testLiveData = MutableLiveData<State<LocalCurrencyStoreModel>>()
-    suspend fun getLocalCurrencyStoreList() = viewModelScope.launch {
-        testLiveData.value = localCurrencyStoreUseCase.invoke("")
+    private val _testLiveData = MutableLiveData<State<LocalCurrencyStoreModel>>()
+    val testLiveData:LiveData<State<LocalCurrencyStoreModel>> = _testLiveData
+
+    fun getLocalCurrencyStoreList() = viewModelScope.launch {
+        _testLiveData.value = localCurrencyStoreUseCase.invoke()
     }
 
     override fun fetchData(): Job = Job()

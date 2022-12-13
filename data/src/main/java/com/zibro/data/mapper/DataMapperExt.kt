@@ -4,49 +4,37 @@ import com.zibro.data.response.*
 import com.zibro.domain.model.*
 
 fun LocalCurrencyStore.toNetworkModel() : LocalCurrencyStoreModel = LocalCurrencyStoreModel(
-    this.regionMnyFacltStus.map { it.toNetworkModel() }
+    regionMnyFacltStus.map {  data ->
+        data.toNetworkModel()
+    }
 )
 
 fun RegionMnyFacltStu.toNetworkModel() = RegionMnyFacltStuModel(
-    this.head.map { it.toNetworkModel() },
-    this.row.map { it.toNetworkModel() }
+    head = head.map { it.toNetworkModel() },
+    row = row.map { it.toNetworkModel() }
 )
 
 fun Head.toNetworkModel() = HeadModel(
-    this.apiVersion,
-    this.listTotalCount,
-    this.rESULT.toNetworkModel()
+    apiVersion = apiVersion,
+    listTotalCount = listTotalCount,
+    result = result.toNetworkModel()
 )
 
-/**
- *
- * @param bIZREGNO String,
- * @param cLSBIZDAY Any,
- * @param cMPNMNM String,
- * @param fRCSNO Int,
- * @param iNDUTYPECD String,
- * @param iNDUTYPENM String,
- * @param lEADTAXMANSTATE String,
- * @param lEADTAXMANSTATECD String,
- * @param rEFINELOTNOADDR String,
- * @param rEFINEROADNMADDR String,
- * @param sIGUNNM String
- */
 fun Row.toNetworkModel() = RowModel(
-    this.bIZREGNO,
-    this.cLSBIZDAY,
-    this.cMPNMNM,
-    this.fRCSNO,
-    this.iNDUTYPECD,
-    this.iNDUTYPENM,
-    this.lEADTAXMANSTATE,
-    this.lEADTAXMANSTATECD,
-    this.rEFINELOTNOADDR,
-    this.rEFINEROADNMADDR,
-    this.sIGUNNM,
+    businessRegistrationNumber = businessRegistrationNumber,
+    closeBusinessDay = closeBusinessDay ?: "yyyy-mm-dd",
+    storeName = storeName,
+    merchantNumber = merchantNumber,
+    industryCode = industryCode,
+    industryName = industryName,
+    closedBusinessState = closedBusinessState,
+    closedBusinessStateCode = closedBusinessStateCode,
+    locationNumberAddress = locationNumberAddress,
+    locationRoadNameAddress = locationRoadNameAddress ?:"알 수 없음",
+    sigunName = sigunName,
 )
 
 fun Result.toNetworkModel() = ResultModel(
-    this.cODE,
-    this.mESSAGE,
+    code = this.code,
+    message = this.message,
 )

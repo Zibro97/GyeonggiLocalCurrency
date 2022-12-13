@@ -1,57 +1,77 @@
 package com.zibro.data.response
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class LocalCurrencyStore(
-    @SerializedName("regionMnyFacltStus")
+    @SerializedName("RegionMnyFacltStus")
+    @Expose
     val regionMnyFacltStus: List<RegionMnyFacltStu>
 )
 
 data class RegionMnyFacltStu(
     @SerializedName("head")
+    @Expose
     val head: List<Head>,
     @SerializedName("row")
+    @Expose
     val row: List<Row>
 )
 
 data class Result(
     @SerializedName("CODE")
-    val cODE: String,
+    @Expose
+    val code: String,
     @SerializedName("MESSAGE")
-    val mESSAGE: String
+    @Expose
+    val message: String
 )
 
 
 data class Row(
     @SerializedName("BIZREGNO")
-    val bIZREGNO: String,
+    @Expose
+    val businessRegistrationNumber: String,
     @SerializedName("CLSBIZ_DAY")
-    val cLSBIZDAY: Any,
+    @Expose
+    val closeBusinessDay: String?,
     @SerializedName("CMPNM_NM")
-    val cMPNMNM: String,
+    @Expose
+    val storeName: String,
     @SerializedName("FRCS_NO")
-    val fRCSNO: Int,
+    @Expose
+    val merchantNumber: Int,
     @SerializedName("INDUTYPE_CD")
-    val iNDUTYPECD: String,
+    @Expose
+    val industryCode: String,
     @SerializedName("INDUTYPE_NM")
-    val iNDUTYPENM: String,
+    @Expose
+    val industryName: String,
     @SerializedName("LEAD_TAX_MAN_STATE")
-    val lEADTAXMANSTATE: String,
+    @Expose
+    val closedBusinessState: String,
     @SerializedName("LEAD_TAX_MAN_STATE_CD")
-    val lEADTAXMANSTATECD: String,
+    @Expose
+    val closedBusinessStateCode: String,
     @SerializedName("REFINE_LOTNO_ADDR")
-    val rEFINELOTNOADDR: String,
+    @Expose
+    val locationNumberAddress: String,
     @SerializedName("REFINE_ROADNM_ADDR")
-    val rEFINEROADNMADDR: String,
+    @Expose
+    val locationRoadNameAddress: String?,
     @SerializedName("SIGUN_NM")
-    val sIGUNNM: String
+    @Expose
+    val sigunName: String
 )
 
 data class Head(
     @SerializedName("api_version")
+    @Expose
     val apiVersion: String,
     @SerializedName("list_total_count")
+    @Expose
     val listTotalCount: Int,
     @SerializedName("RESULT")
-    val rESULT: Result
+    @Expose
+    val result: Result
 )
