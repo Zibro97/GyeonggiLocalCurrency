@@ -12,10 +12,10 @@ data class LocalCurrencyStore(
 data class RegionMnyFacltStu(
     @SerializedName("head")
     @Expose
-    val head: List<Head>,
+    val head: List<Head>?,
     @SerializedName("row")
     @Expose
-    val row: List<Row>
+    val row: List<Row>?,
 )
 
 data class Result(
@@ -67,11 +67,11 @@ data class Row(
 data class Head(
     @SerializedName("api_version")
     @Expose
-    val apiVersion: String,
+    val apiVersion: String?,
     @SerializedName("list_total_count")
     @Expose
     val listTotalCount: Int,
-    @SerializedName("RESULT")
     @Expose
-    val result: Result
+    @SerializedName("RESULT")
+    val result: Result?
 )

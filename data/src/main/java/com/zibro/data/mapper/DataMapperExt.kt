@@ -3,24 +3,32 @@ package com.zibro.data.mapper
 import com.zibro.data.response.*
 import com.zibro.domain.model.*
 
-fun LocalCurrencyStore.toNetworkModel() : LocalCurrencyStoreModel = LocalCurrencyStoreModel(
+fun LocalCurrencyStore.toLocalCurrencyStoreModel() : LocalCurrencyStoreModel = LocalCurrencyStoreModel(
     regionMnyFacltStus.map {  data ->
-        data.toNetworkModel()
+        data.toRegionMnyFacltStuModel()
     }
 )
 
-fun RegionMnyFacltStu.toNetworkModel() = RegionMnyFacltStuModel(
-    head = head.map { it.toNetworkModel() },
-    row = row.map { it.toNetworkModel() }
+fun RegionMnyFacltStu.toRegionMnyFacltStuModel() = RegionMnyFacltStuModel(
+    head = head?.let{ headList ->
+        headList.map { head ->
+            head.toHeadModel()
+        }
+    },
+    row = row?.let{ rowList ->
+        rowList.map { row->
+            row.toRowModel()
+        }
+    }
 )
 
-fun Head.toNetworkModel() = HeadModel(
-    apiVersion = apiVersion,
+fun Head.toHeadModel() = HeadModel(
+    apiVersion = apiVersion ?: "1.0v",
     listTotalCount = listTotalCount,
-    result = result.toNetworkModel()
+    result = result?.toResultModel()
 )
 
-fun Row.toNetworkModel() = RowModel(
+fun Row.toRowModel() = RowModel(
     businessRegistrationNumber = businessRegistrationNumber,
     closeBusinessDay = closeBusinessDay ?: "yyyy-mm-dd",
     storeName = storeName,
@@ -34,7 +42,7 @@ fun Row.toNetworkModel() = RowModel(
     sigunName = sigunName,
 )
 
-fun Result.toNetworkModel() = ResultModel(
-    code = this.code,
-    message = this.message,
+fun Result.toResultModel() = ResultModel(
+    code = code,
+    message = message,
 )

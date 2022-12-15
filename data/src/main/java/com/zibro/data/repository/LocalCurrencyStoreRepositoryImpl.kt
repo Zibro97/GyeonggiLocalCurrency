@@ -1,6 +1,7 @@
 package com.zibro.data.repository
 
-import com.zibro.data.mapper.toNetworkModel
+import android.util.Log
+import com.zibro.data.mapper.toLocalCurrencyStoreModel
 import com.zibro.data.network.OpenApiService
 import com.zibro.domain.model.LocalCurrencyStoreModel
 import com.zibro.domain.repository.LocalCurrencyStoreRepository
@@ -31,7 +32,8 @@ class LocalCurrencyStoreRepositoryImpl(
                 roadNumberAddress = roadNumberAddress,
                 lotNumberAddress = lotNumberAddress
             ).let { localCurrencyStore ->
-                State.Success(localCurrencyStore.toNetworkModel())
+                Log.d("test", "getLocalCurrencyStoreList: ${localCurrencyStore}")
+                State.Success(localCurrencyStore.toLocalCurrencyStoreModel())
             }
         } catch (e :Exception) {
             State.Error(e)
