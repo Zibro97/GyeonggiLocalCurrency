@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.zibro.presentation">
+
+    <meta-data
+        tools:replace="android:value"
+        android:name="com.kakao.sdk.AppKey"
+        android:value="98ad466085565e1d0aae1147db1f082d" />
 
     <application>
         <activity

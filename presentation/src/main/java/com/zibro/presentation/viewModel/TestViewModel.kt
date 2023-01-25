@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.zibro.domain.model.LocalCurrencyStoreModel
 import com.zibro.domain.usecase.GetLocalCurrencyStoreUseCase
 import com.zibro.domain.util.State
-import com.zibro.presentation.BaseViewModel
+import com.zibro.presentation.base.BaseViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 

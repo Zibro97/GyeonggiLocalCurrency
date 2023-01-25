@@ -1,4 +1,4 @@
-package com.zibro.presentation
+package com.zibro.presentation.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.Job
